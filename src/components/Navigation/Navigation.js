@@ -12,8 +12,8 @@ const Navigation = props => {
         </S.SearchBarForm>
       </S.WrapperSearch>
       <S.WrapperUser>
-        <S.UserLink to="/">로그인</S.UserLink>
-        <S.UserLink to="/">회원가입</S.UserLink>
+        <S.UserLink to="/sign-in">로그인</S.UserLink>
+        <S.UserLink to="/sign-up">회원가입</S.UserLink>
         <S.ProjectButton>프로젝트 오픈 신청</S.ProjectButton>
       </S.WrapperUser>
     </S.Wrapper>

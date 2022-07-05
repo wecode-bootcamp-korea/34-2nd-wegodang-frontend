@@ -6,7 +6,8 @@ import Detail from './pages/Detail/Detail';
 import Purchase from './pages/Purchase/Purchase';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
-
+import OAuth from './pages/SignUp/Components/OAuth';
+import SignUpAfter from './pages/SignUp/Components/SignUpAfter';
 const Router = () => {
   return (
     <BrowserRouter>
@@ -17,6 +18,8 @@ const Router = () => {
           <Route path="/purchase" element={<Purchase />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/oauth" element={<OAuth />} />
+          <Route path="/sign-up-after" element={<SignUpAfter />} />
         </Routes>
       </Layout>
     </BrowserRouter>
