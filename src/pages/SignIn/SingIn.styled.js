@@ -10,7 +10,7 @@ export const LoginWrapper = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin: 100px 0px;
+  margin: 200px 0px;
   width: 350px;
 `;
 export const LoginTitle = styled.div`
