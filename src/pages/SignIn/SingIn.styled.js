@@ -33,3 +33,4 @@ export const LoginImg = styled.img`
   border-radius: 9px;
 `;
 export const LoginDivLink = LoginDiv.withComponent('a');
+export const LoginImgLink = LoginImg.withComponent('a');
