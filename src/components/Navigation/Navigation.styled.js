@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.nav`
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 10px 100px;
   height: 60px;
 `;
 
