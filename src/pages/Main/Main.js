@@ -7,22 +7,17 @@ import HttpClient from '../../services/wecode';
 const httpClient = new HttpClient(process.env.REACT_APP_LOCAL_URL);
 
 const Main = () => {
-  const {
-    loading,
-    error,
-    payload: { products },
-  } = useFetch({
+  const { loading, error, payload } = useFetch({
     httpClient,
     url: `/products/list`,
   });
 
   if (loading) return <p>Loadding</p>;
-
   if (error) return <p>{error}</p>;
 
   return (
     <S.WrapperMain>
-      <ItemCards fundItems={products} />
+      <ItemCards fundItems={payload.products} />
     </S.WrapperMain>
   );
 };
