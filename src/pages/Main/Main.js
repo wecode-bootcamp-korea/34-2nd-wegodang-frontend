@@ -9,7 +9,7 @@ const httpClient = new HttpClient(process.env.REACT_APP_LOCAL_URL);
 const Main = () => {
   const { loading, error, payload } = useFetch({
     httpClient,
-    url: `/products/list`,
+    url: `/products`,
   });
 
   if (loading) return <p>Loadding</p>;
