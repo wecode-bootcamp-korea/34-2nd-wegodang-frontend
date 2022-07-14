@@ -1,19 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Category = ({ category }) => {
   return (
-    <WrapperCategory>
+    <WrapperCategory to={`/${category.id}`}>
       <ImageBox>
-        <CategoryImage src={category.image_url} />
+        <CategoryImage src={category.image} />
       </ImageBox>
       <TitleBox>
-        <CategoryTitle>{category.title}</CategoryTitle>
+        <CategoryTitle>{category.name}</CategoryTitle>
       </TitleBox>
     </WrapperCategory>
   );
 };
-const WrapperCategory = styled.div`
+const WrapperCategory = styled(Link)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,8 +24,9 @@ const WrapperCategory = styled.div`
 const ImageBox = styled.div``;
 const TitleBox = styled.div``;
 const CategoryImage = styled.img`
-  margin-top: 8px;
+  margin: 10px 0;
   height: 50px;
+  width: 50px;
   border-radius: 50%;
 `;
 const CategoryTitle = styled.div`
