@@ -1,43 +1,29 @@
 import React from 'react';
 import Category from './Category.js';
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { Arrow, StSlider } from './Categories.styled.js';
 
 function SampleNextArrow(props) {
-  const { onClick } = props;
+  const { className, onClick } = props;
   return (
-    <img
+    <Arrow
+      className={className}
       alt="rightButton"
       src="/images/icons/chevron-right-solid.svg"
-      style={{
-        position: 'absolute',
-        right: '30px',
-        top: '38px',
-        display: 'block',
-        opacity: '0.7',
-        width: '25px',
-        height: '25px',
-      }}
       onClick={onClick}
     />
   );
 }
 
 function SamplePrevArrow(props) {
-  const { onClick } = props;
+  const { className, onClick } = props;
+
   return (
-    <img
+    <Arrow
+      className={className}
       alt="leftButton"
       src="/images/icons/chevron-left-solid.svg"
-      style={{
-        position: 'absolute',
-        left: '30px',
-        display: 'block',
-        opacity: '0.7',
-        width: '25px',
-        height: '25px',
-      }}
       onClick={onClick}
     />
   );
@@ -53,11 +39,11 @@ const Paging = ({ categories }) => {
   };
 
   return (
-    <Slider {...settings}>
+    <StSlider {...settings}>
       {categories.map(category => {
         return <Category key={category.id} category={category} />;
       })}
-    </Slider>
+    </StSlider>
   );
 };
 

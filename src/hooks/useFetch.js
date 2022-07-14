@@ -10,21 +10,24 @@ export default function useFetch({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const getData = useCallback(async () => {
-    try {
-      const { data } = await httpClient.getData(url, params);
-      setPayload(data);
-    } catch (e) {
-      console.error('error!!', e);
-      setError('error!!');
-    } finally {
-      setLoading(false);
-    }
-  }, [httpClient, url]);
+  const getData = useCallback(
+    async params => {
+      try {
+        const { data } = await httpClient.getData(url, params);
+        setPayload(data);
+      } catch (e) {
+        console.error('error!!', e);
+        setError('error!!');
+      } finally {
+        setLoading(false);
+      }
+    },
+    [httpClient, url]
+  );
 
   useEffect(() => {
     if (skip) return;
-    getData();
+    getData(params);
   }, [getData, skip]);
 
   return { payload, loading, error, getData };
