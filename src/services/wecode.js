@@ -11,8 +11,8 @@ export default class HttpClient {
     });
   }
 
-  async getData(url) {
-    const data = await this.httpClient.get(url);
+  async getData(url, params = {}) {
+    const data = await this.httpClient.get(url, { params });
     return data;
   }
 }
