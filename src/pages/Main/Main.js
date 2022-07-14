@@ -9,10 +9,18 @@ import Paging from '../../components/Categories/Categories';
 const httpClient = new HttpClient(process.env.REACT_APP_BASE_URL);
 
 const Main = () => {
-  const { loading, error, payload } = useFetch({
+  const productsInfos = useFetch({
     httpClient,
     url: `/products`,
     params: { offset: 0, limit: ITEM_CARD_LOAD_COUNT },
+  });
+
+  const sliderInfos = useFetch({
+    httpClient,
+    url: `/products`,
+    params: {
+      order: 'random',
+    },
   });
 
   const [moreProducts, setMoreProduct] = useState([]);
@@ -52,13 +60,24 @@ const Main = () => {
     loadNewData();
   }, [isNewLoad, loadNewData]);
 
-  if (loading) return <p>Loadding</p>;
-  if (error) return <p>{error}</p>;
   return (
     <S.WrapperMain>
-      <SimpleSlider />
-      <Paging categories={CATEGORIES} />
-      <ItemCards fundItems={[...payload.products, ...moreProducts]} />
+      {sliderInfos.loading ? (
+        <p>Loadding</p>
+      ) : sliderInfos.error ? (
+        <p>{sliderInfos.error}</p>
+      ) : (
+        <SimpleSlider fundItems={productsInfos.payload.products} />
+      )}
+      {productsInfos.loading ? (
+        <p>Loadding</p>
+      ) : productsInfos.error ? (
+        <p>{productsInfos.error}</p>
+      ) : (
+        <ItemCards
+          fundItems={[...productsInfos.payload.products, ...moreProducts]}
+        />
+      )}
     </S.WrapperMain>
   );
 };
