@@ -15,4 +15,9 @@ export default class HttpClient {
     const data = await this.httpClient.get(url, { params });
     return data;
   }
+
+  async postData(url, body = {}) {
+    const data = await this.httpClient.post(url, body);
+    return data;
+  }
 }

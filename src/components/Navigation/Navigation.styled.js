@@ -7,7 +7,7 @@ export const Wrapper = styled.nav`
   height: 60px;
 `;
 
-export const Logo = styled.p`
+export const Logo = styled(Link)`
   font-size: 30px;
   font-family: 'Poppins', sans-serif;
   flex: 1;
@@ -72,4 +72,22 @@ export const ProjectButton = styled.button`
   background-color: inherit;
   color: #58c1c2;
   font-size: 17px;
+`;
+
+export const Logout = styled.button`
+  padding: 7px 15px;
+  border: 1px solid #ff5b5b;
+  border-radius: 4px;
+  background-color: inherit;
+  color: #ff5b5b;
+  font-size: 17px;
+  margin-left: 20px;
+`;
+
+export const UserIcon = styled.img`
+  width: 30px;
+  height: 30px;
+  background-color: #8be4e4;
+  color: #cbf7f7;
+  border-radius: 50%;
 `;

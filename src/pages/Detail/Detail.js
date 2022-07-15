@@ -7,7 +7,7 @@ import HttpClient from '../../services/wecode';
 import heartImage from '../../assets/icons/heart.png';
 import interviewImage from '../../assets/icons/interview.png';
 
-const httpClient = new HttpClient(process.env.REACT_APP_LOCAL_URL);
+const httpClient = new HttpClient(process.env.REACT_APP_BASE_URL);
 
 const Detail = () => {
   const params = useParams();
@@ -15,6 +15,7 @@ const Detail = () => {
     httpClient,
     url: `/products/${params.id}`,
   });
+
   if (loading) return <p>loading..</p>;
 
   const {
@@ -62,19 +63,19 @@ const Detail = () => {
             프로젝트 스토리
             <S.ProjectStory>
               <S.ProjectStoryImage
-                src={image_url[3].url}
+                src={image_url[1]?.url}
                 alt="메인 상품 이미지"
               />
             </S.ProjectStory>
             <S.ProjectStory>
               <S.ProjectStoryImage
-                src={image_url[2].url}
+                src={image_url[2]?.url}
                 alt="메인 상품 이미지"
               />
             </S.ProjectStory>
             <S.ProjectStory>
               <S.ProjectStoryImage
-                src={image_url[1].url}
+                src={image_url[3]?.url}
                 alt="메인 상품 이미지"
               />
             </S.ProjectStory>

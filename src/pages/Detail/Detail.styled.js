@@ -86,9 +86,7 @@ export const ImageContainer = styled.div`
   position: relative;
   width: 100%;
   height: 0px;
-  padding: 40px;
   padding-bottom: 100%;
-  background-color: pink;
   overflow: hidden;
 `;
 
